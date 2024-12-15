@@ -87,7 +87,7 @@ public class cardHolder
             double withdrawal = double.Parse(Console.ReadLine());
             // Check if the user has enough money
 
-            if (currentUser.getCardBalance() > withdrawal)
+            if (currentUser.getCardBalance() < withdrawal)
             {
                 Console.WriteLine("Insufficient funds :(");
             }
