@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "ATM Home";
+}
+
+<h1>Welcome to Simple ATM</h1>
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color:red;">@ViewBag.ErrorMessage</p>
+}
+<form asp-controller="ATM" asp-action="Balance" method="get">
+    <label for="cardNum">Enter your card number:</label>
+    <input type="text" id="cardNum" name="cardNum" required />
+    <button type="submit">Check Balance</button>
+</form>

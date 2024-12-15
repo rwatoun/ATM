@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Your Balance";
+}
+
+<h1>Your Balance</h1>
+<p>Your current balance is: @ViewBag.Balance</p>
+
+<form asp-controller="ATM" asp-action="Deposit" method="post">
+    <label for="deposit">Deposit Amount:</label>
+    <input type="number" id="deposit" name="amount" required />
+    <input type="hidden" name="cardNum" value="@ViewBag.CardNum" />
+    <button type="submit">Deposit</button>
+</form>
+
+<form asp-controller="ATM" asp-action="Withdraw" method="post">
+    <label for="withdraw">Withdraw Amount:</label>
+    <input type="number" id="withdraw" name="amount" required />
+    <input type="hidden" name="cardNum" value="@ViewBag.CardNum" />
+    <button type="submit">Withdraw</button>
+</form>
+
+<a href="/">Back to Home</a>
