@@ -76,7 +76,7 @@ public class cardHolder
         {
             Console.WriteLine("How much money would you like to deposit?");
             double deposit = double.Parse(Console.ReadLine());
-            currentUser.setCardBalance(deposit);
+            currentUser.setCardBalance(currentUser.getCardBalance() + deposit);
             Console.WriteLine("Thank you for your money. Your new balance is: " + currentUser.getCardBalance());
 
         }
