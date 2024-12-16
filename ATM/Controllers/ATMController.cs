@@ -32,8 +32,32 @@ namespace ATM.Controllers
 
             ViewBag.Balance = user.getCardBalance();
             ViewBag.CardNum = cardNum;
-            return View();
+            return View("Pin");
         }
+
+        [HttpPost]
+        public IActionResult VerifyPin(string cardNum, int pin)
+        {
+            var user = cardHolders.FirstOrDefault(c => c.getNum() == cardNum);
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = "Card not recognized. Please try again.";
+                return View("Index");
+            }
+
+            if (user.getPin() != pin)
+            {
+                ViewBag.ErrorMessage = "Incorrect PIN. Please try again.";
+                ViewBag.CardNum = cardNum;
+                return View("Pin");
+            }
+
+            // PIN is correct, proceed to show balance and options
+            ViewBag.Balance = user.getCardBalance();
+            ViewBag.CardNum = cardNum;
+            return View("Balance");
+        }
+
 
         // Deposit money
         public IActionResult Deposit(string cardNum, double amount)
