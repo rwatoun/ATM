@@ -1,15 +1,22 @@
-﻿
-@{
-    ViewData["Title"] = "ATM Home";
+﻿@{
+    ViewData["Title"] = "ATM Login";
 }
 
-<h1>Welcome to Simple ATM</h1>
+<h1>Welcome to the Simple ATM</h1>
+
 @if (ViewBag.ErrorMessage != null)
 {
-    <p style="color:red;">@ViewBag.ErrorMessage</p>
+    <p style="color: red;">@ViewBag.ErrorMessage</p>
 }
-<form asp-controller="ATM" asp-action="Balance" method="get">
-    <label for="cardNum">Enter your card number:</label>
-    <input type="text" id="cardNum" name="cardNum" required />
-    <button type="submit">Check Balance</button>
+
+<form asp-controller="ATM" asp-action="Login" method="post">
+    <div>
+        <label for="cardNum">Card Number:</label>
+        <input type="text" id="cardNum" name="cardNum" required />
+    </div>
+    <div>
+        <label for="pin">PIN:</label>
+        <input type="password" id="pin" name="pin" required />
+    </div>
+    <button type="submit">Login</button>
 </form>
